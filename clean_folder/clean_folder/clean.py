@@ -76,7 +76,7 @@ def unpack_archive(path: Path) -> None:
                     shutil.unpack_archive(str(file_path), str(archives_folder / file_path.stem))
                     print(f"Archive {str(file_path)} unpack successful")
                     file_path.unlink()
-                except:
+                except PermissionError:
                     print(f"Archive {str(file_path)} was not unpacked")
                     continue
     else:
